@@ -3,6 +3,7 @@ package org.sooo;
 import org.junit.Test;
 
 import com.google.common.base.Objects;
+import com.google.common.base.Objects.ToStringHelper;
 
 public class ObjectsTest {
 
@@ -29,5 +30,16 @@ public class ObjectsTest {
 		c1 = dummyCustomerFactory.create();
 		c2 = dummyCustomerFactory.create();
 		System.out.println(Objects.equal(c1, c2));
+	}
+
+	@Test
+	public void useToStringHelper() {
+		c1 = dummyCustomerFactory.create();
+		ToStringHelper toStringHelper = Objects.toStringHelper(Customer.class);
+		toStringHelper.add("firstName", c1.getFirstName());
+		toStringHelper.add("lastName", c1.getLastName());
+		toStringHelper.add("yearOfBirth", c1.getYearOfBirth());
+		toStringHelper.add("vip", c1.isVip());
+		System.out.println(toStringHelper.toString());
 	}
 }
