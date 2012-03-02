@@ -34,8 +34,7 @@ public class SplitterTest {
 	@Test
 	public void splitComplicatedStringToGetMap() {
 		// given
-		Customer customer = new Customer("John", "Doe", "john.doe@email.com",
-				"010-1234-5678", 1970, true);
+		Customer customer = new DummyCustomerFactory().create();
 		String jsonString = new Gson().toJson(customer);
 		String inputString = jsonString.replaceAll("[{}]", "");
 
@@ -53,7 +52,7 @@ public class SplitterTest {
 		assertThat(map.get("lastName"), is("Doe"));
 		assertThat(map.get("emailAddress"), is("john.doe@email.com"));
 		assertThat(map.get("mobileNumber"), is("010-1234-5678"));
-		assertThat(map.get("yearOfBirth"), is("1970"));
-		assertThat(map.get("vip"), is("true"));
+		assertThat(map.get("yearOfBirth"), is("1950"));
+		assertThat(map.get("vip"), is("false"));
 	}
 }

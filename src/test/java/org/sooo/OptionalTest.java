@@ -35,11 +35,8 @@ public class OptionalTest {
 	@Test
 	public void useOrToUseDefaultObject() {
 		Optional<Customer> customer = Optional.fromNullable(null);
-		System.out.println(customer.or(getDefaultCustomer()).getEmailAddress());
+		System.out.println(customer.or(new DummyCustomerFactory().create())
+				.getEmailAddress());
 	}
 
-	private Customer getDefaultCustomer() {
-		return new Customer("John", "Doe", "john.doe@email.com",
-				"010-1234-5678", 1950, false);
-	}
 }
