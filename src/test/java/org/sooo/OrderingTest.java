@@ -12,6 +12,7 @@ public class OrderingTest {
 
 	private List<String> words = Arrays.asList("I", "am", "learning", "how",
 			"to", "use", "Guava");
+	private List<Integer> numbers = Arrays.asList(1, 0, 3, -4, 55, -1, 777);
 
 	@Test
 	public void orderStringByLength() {
@@ -21,13 +22,29 @@ public class OrderingTest {
 				return Ints.compare(left.length(), right.length());
 			}
 		};
-		System.out.println(byLengthOrdering.sortedCopy(words));
-		System.out.println(byLengthOrdering.reverse().sortedCopy(words));
+		System.out.println("String.byLength: "
+				+ byLengthOrdering.sortedCopy(words));
+		System.out.println("String.byLength.reversed: "
+				+ byLengthOrdering.reverse().sortedCopy(words));
 	}
 
 	@Test
 	public void orderStringInANaturalWay() {
-		System.out.println(Ordering.natural().sortedCopy(words));
-		System.out.println(Ordering.natural().reverse().sortedCopy(words));
+		System.out.println("String.natural: "
+				+ Ordering.natural().sortedCopy(words));
+		System.out.println("String.natural: "
+				+ Ordering.natural().reverse().sortedCopy(words));
+	}
+
+	@Test
+	public void orderIntegerInANaturalWay() {
+		System.out.println("Integer.natural: "
+				+ Ordering.natural().sortedCopy(numbers));
+		System.out.println("Integer.natural.greatestOf(3): "
+				+ Ordering.natural().greatestOf(numbers, 3));
+		System.out.println("Integer.natural.reversed: "
+				+ Ordering.natural().reverse().sortedCopy(numbers));
+		System.out.println("Integer.natural.reversed.greatestOf(3): "
+				+ Ordering.natural().reverse().greatestOf(numbers, 3));
 	}
 }
