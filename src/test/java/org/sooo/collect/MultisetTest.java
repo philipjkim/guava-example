@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.collect;
 
 import java.io.File;
 import java.util.HashMap;

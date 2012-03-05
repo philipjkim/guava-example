@@ -1,6 +1,8 @@
-package org.sooo;
+package org.sooo.base;
 
 import org.junit.Test;
+import org.sooo.Customer;
+import org.sooo.DummyCustomerFactory;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
@@ -28,13 +30,6 @@ public class ObjectsTest {
 	@Test
 	public void useEqualOfObjectsWithNotNullObjects() {
 		c1 = dummyCustomerFactory.create();
-		c2 = dummyCustomerFactory.create();
-		System.out.println(Objects.equal(c1, c2));
-	}
-	
-	@Test
-	public void useEqualOfObjectsWithMixedNullObjects() {
-		c1 = null;
 		c2 = dummyCustomerFactory.create();
 		System.out.println(Objects.equal(c1, c2));
 	}

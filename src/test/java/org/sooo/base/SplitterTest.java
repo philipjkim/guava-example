@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.base;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import java.util.Map;
 
 import org.junit.Test;
+import org.sooo.Customer;
+import org.sooo.DummyCustomerFactory;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
@@ -48,12 +50,11 @@ public class SplitterTest {
 				.split(inputString);
 
 		// then
-		assertThat(map.get("firstName"), is(customer.getFirstName()));
-		assertThat(map.get("lastName"), is(customer.getLastName()));
-		assertThat(map.get("emailAddress"), is(customer.getEmailAddress()));
-		assertThat(map.get("mobileNumber"), is(customer.getMobileNumber()));
-		assertThat(map.get("yearOfBirth"),
-				is(Integer.toString(customer.getYearOfBirth())));
-		assertThat(map.get("vip"), is(Boolean.toString(customer.isVip())));
+		assertThat(map.get("firstName"), is("John"));
+		assertThat(map.get("lastName"), is("Doe"));
+		assertThat(map.get("emailAddress"), is("john.doe@email.com"));
+		assertThat(map.get("mobileNumber"), is("010-1234-5678"));
+		assertThat(map.get("yearOfBirth"), is("1950"));
+		assertThat(map.get("vip"), is("false"));
 	}
 }

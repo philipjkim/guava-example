@@ -1,11 +1,8 @@
-package org.sooo;
-
-import java.util.List;
+package org.sooo.base;
 
 import org.junit.Test;
 
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 
 public class PreconditionsTest {
 
@@ -33,17 +30,5 @@ public class PreconditionsTest {
 	public void checkStateWhenCheckFailed() {
 		boolean state = 2 < 1;
 		Preconditions.checkState(state);
-	}
-
-	@Test
-	public void checkElementIndexWhenCheckPassed() {
-		List<String> list = Lists.newArrayList("a", "b", "c", "d");
-		Preconditions.checkElementIndex(2, list.size());
-	}
-
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void checkElementIndexWhenCheckFailed() {
-		List<String> list = Lists.newArrayList("a", "b", "c", "d");
-		Preconditions.checkElementIndex(10, list.size());
 	}
 }

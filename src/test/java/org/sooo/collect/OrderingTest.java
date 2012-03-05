@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.collect;
 
 import java.util.Arrays;
 import java.util.List;
