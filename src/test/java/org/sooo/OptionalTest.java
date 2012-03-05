@@ -38,5 +38,4 @@ public class OptionalTest {
 		System.out.println(customer.or(new DummyCustomerFactory().create())
 				.getEmailAddress());
 	}
-
 }

@@ -4,12 +4,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.Test;
 
+import com.google.common.base.Function;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 
 public class MultimapTest {
 
@@ -38,6 +41,18 @@ public class MultimapTest {
 		Multimap<String, String> dictionary = ArrayListMultimap.create();
 		for (String word : words)
 			dictionary.put(word.substring(0, 1), word);
+		System.out.println(dictionary);
+	}
+
+	@Test
+	public void createDictionaryUsingFunctional() throws ExecutionException {
+		Multimap<String, String> dictionary = Multimaps.index(words,
+				new Function<String, String>() {
+					@Override
+					public String apply(String input) {
+						return input.substring(0, 1);
+					}
+				});
 		System.out.println(dictionary);
 	}
 }

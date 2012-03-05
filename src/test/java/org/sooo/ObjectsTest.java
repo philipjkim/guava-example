@@ -31,6 +31,13 @@ public class ObjectsTest {
 		c2 = dummyCustomerFactory.create();
 		System.out.println(Objects.equal(c1, c2));
 	}
+	
+	@Test
+	public void useEqualOfObjectsWithMixedNullObjects() {
+		c1 = null;
+		c2 = dummyCustomerFactory.create();
+		System.out.println(Objects.equal(c1, c2));
+	}
 
 	@Test
 	public void useToStringHelper() {
