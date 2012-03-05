@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.base;
 
 import org.junit.Test;
 

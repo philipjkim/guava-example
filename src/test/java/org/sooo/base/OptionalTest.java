@@ -1,9 +1,11 @@
-package org.sooo;
+package org.sooo.base;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
+import org.sooo.Customer;
+import org.sooo.DummyCustomerFactory;
 
 import com.google.common.base.Optional;
 

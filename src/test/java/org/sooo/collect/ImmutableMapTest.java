@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.collect;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

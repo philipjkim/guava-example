@@ -1,6 +1,8 @@
-package org.sooo;
+package org.sooo.base;
 
 import org.junit.Test;
+import org.sooo.Customer;
+import org.sooo.DummyCustomerFactory;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;

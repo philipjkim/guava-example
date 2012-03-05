@@ -1,4 +1,4 @@
-package org.sooo;
+package org.sooo.base;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import java.util.Map;
 
 import org.junit.Test;
+import org.sooo.Customer;
+import org.sooo.DummyCustomerFactory;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
