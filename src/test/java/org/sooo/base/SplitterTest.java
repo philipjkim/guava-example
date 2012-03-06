@@ -50,11 +50,12 @@ public class SplitterTest {
 				.split(inputString);
 
 		// then
-		assertThat(map.get("firstName"), is("John"));
-		assertThat(map.get("lastName"), is("Doe"));
-		assertThat(map.get("emailAddress"), is("john.doe@email.com"));
-		assertThat(map.get("mobileNumber"), is("010-1234-5678"));
-		assertThat(map.get("yearOfBirth"), is("1950"));
-		assertThat(map.get("vip"), is("false"));
+		assertThat(map.get("firstName"), is(customer.getFirstName()));
+		assertThat(map.get("lastName"), is(customer.getLastName()));
+		assertThat(map.get("emailAddress"), is(customer.getEmailAddress()));
+		assertThat(map.get("mobileNumber"), is(customer.getMobileNumber()));
+		assertThat(map.get("yearOfBirth"),
+				is(Integer.toString(customer.getYearOfBirth())));
+		assertThat(map.get("vip"), is(Boolean.toString(customer.isVip())));
 	}
 }
