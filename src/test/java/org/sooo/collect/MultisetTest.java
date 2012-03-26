@@ -1,6 +1,7 @@
 package org.sooo.collect;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,10 +11,12 @@ import org.junit.Test;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Charsets;
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.TreeMultiset;
 import com.google.common.io.Files;
 
 public class MultisetTest {
@@ -51,5 +54,14 @@ public class MultisetTest {
 
 		for (String word : wordsMultiset.elementSet())
 			System.out.println(word + "=" + wordsMultiset.count(word));
+	}
+
+	@Test
+	public void useTreeMultisetAsOrderedArray() {
+		Multiset<Integer> treeMultiset = TreeMultiset.create(Arrays.asList(1,
+				2, 3, 1, 1, -1, 2, 4, 5, 100));
+
+		System.out.println(treeMultiset);
+		System.out.println(Joiner.on(", ").join(treeMultiset));
 	}
 }
