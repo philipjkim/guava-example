@@ -18,7 +18,7 @@ public class CacheTest {
 
 	@Test
 	public void populateCacheUsingCacheLoader() {
-		// given
+		// when
 		LoadingCache<String, BigInteger> bigIntegers = CacheBuilder
 				.newBuilder().maximumSize(10)
 				.build(new CacheLoader<String, BigInteger>() {
@@ -28,12 +28,13 @@ public class CacheTest {
 					}
 				});
 
-		// when
-		for (int i = 0; i < STRINGS.size(); i++) {
-			printElapsedTime(bigIntegers, STRINGS.get(i));
-		}
-		for (int i = 0; i < STRINGS.size(); i++) {
-			printElapsedTime(bigIntegers, STRINGS.get(i));
+		// then
+		for (int rep = 0; rep < 3; rep++) {
+			for (int i = 0; i < STRINGS.size(); i++) {
+				printElapsedTime(bigIntegers, STRINGS.get(i));
+			}
+			System.out.println("Hit rate so far: "
+					+ bigIntegers.stats().hitRate());
 		}
 	}
 
