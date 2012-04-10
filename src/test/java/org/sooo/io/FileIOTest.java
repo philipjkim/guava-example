@@ -19,9 +19,8 @@ import com.google.common.io.Files;
 import com.google.common.io.InputSupplier;
 
 /**
- * File copy examples are from
- * <code><a href="http://stackoverflow.com/questions/5253324/how-to-use-the-inputsupplier-or-outputsupplier-api-of-guava">
- * stackoverflow</a></code>
+ * File copy examples are from <code><a href="http://bit.ly/IARmz8">
+ * http://bit.ly/IARmz8</a></code>
  * 
  * @author sooo
  * 

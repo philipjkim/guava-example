@@ -3,9 +3,8 @@ package org.sooo.eventbus;
 import com.google.common.eventbus.Subscribe;
 
 /**
- * Reference:
- * <code><a href="http://stackoverflow.com/questions/7748618/subscribing-to-an-event-bus">
- * stackoverflow</a></code>
+ * Reference: <code><a href="http://bit.ly/ImpKvF">
+ * http://bit.ly/ImpKvF</a></code>
  * 
  * @author sooo
  * 
