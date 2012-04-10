@@ -76,4 +76,14 @@ public class FileIOTest {
 		out.delete();
 		assertThat(out.exists(), is(false));
 	}
+
+	@Test
+	public void getFileExtension() {
+		assertThat(Files.getFileExtension(inFilePath), is("txt"));
+	}
+
+	@Test
+	public void simplifyPath() {
+		assertThat(Files.simplifyPath(inFilePath + "/"), is(inFilePath));
+	}
 }
