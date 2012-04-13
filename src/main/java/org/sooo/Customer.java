@@ -1,5 +1,7 @@
 package org.sooo;
 
+import com.google.common.base.Objects;
+
 public class Customer {
 
 	private String firstName;
@@ -42,5 +44,23 @@ public class Customer {
 
 	public boolean isVip() {
 		return vip;
+	}
+
+	public void setVip(boolean vip) {
+		this.vip = vip;
+	}
+
+	@Override
+	public String toString() {
+		return Objects.toStringHelper(this).add("firstName", firstName)
+				.add("lastName", lastName).add("emailAddress", emailAddress)
+				.add("mobileNumber", mobileNumber)
+				.add("yearOfBirth", yearOfBirth).add("vip", vip).toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(firstName, lastName, emailAddress,
+				mobileNumber, yearOfBirth, vip);
 	}
 }

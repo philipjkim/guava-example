@@ -55,6 +55,11 @@ public class Device implements Comparable<Device> {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hashCode(grade, name);
+	}
+
+	@Override
 	public int compareTo(Device that) {
 		return ComparisonChain.start()
 				.compare(this.grade, that.grade, Ordering.natural())

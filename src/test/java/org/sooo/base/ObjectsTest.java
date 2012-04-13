@@ -1,5 +1,9 @@
 package org.sooo.base;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.sooo.Customer;
 import org.sooo.DummyCustomerFactory;
@@ -40,7 +44,11 @@ public class ObjectsTest {
 		c2 = dummyCustomerFactory.create();
 		System.out.println(Objects.equal(c1, c2));
 	}
-	
+
+	/**
+	 * For <code>Objects.ToStringHelper</code> usage, refer to
+	 * {@link Customer#toString()}.
+	 */
 	@Test
 	public void useToStringHelper() {
 		c1 = dummyCustomerFactory.create();
@@ -50,5 +58,18 @@ public class ObjectsTest {
 		toStringHelper.add("yearOfBirth", c1.getYearOfBirth());
 		toStringHelper.add("vip", c1.isVip());
 		System.out.println(toStringHelper.toString());
+	}
+
+	/**
+	 * For <code>Objects.hashCode()</code> usage, refer to
+	 * {@link Customer#hashCode()}.
+	 */
+	@Test
+	public void useHashCode() {
+		c1 = dummyCustomerFactory.create();
+		c2 = dummyCustomerFactory.create();
+		assertThat(c1.hashCode(), is(c2.hashCode()));
+		c2.setVip(true);
+		assertThat(c1.hashCode(), is(not(c2.hashCode())));
 	}
 }
