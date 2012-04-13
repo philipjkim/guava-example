@@ -69,4 +69,30 @@ public class CharMatcherTest {
 		// then
 		assertThat(lowerAndDigit, is("2oreansnd3mericans"));
 	}
+
+	@Test
+	public void removeNonASCIIAndTabCharacters() {
+		// given
+		String input = "This string has Korean characters(한국어) and a tab\tcharacter.";
+
+		// when
+		String filtered = CharMatcher.ASCII.and(CharMatcher.isNot('\t'))
+				.retainFrom(input);
+
+		// then
+		assertThat(filtered,
+				is("This string has Korean characters() and a tabcharacter."));
+	}
+
+	@Test
+	public void countTabCharacter() {
+		// given
+		String input = "\ta\tb\tc\td";
+
+		// when
+		int count = CharMatcher.is('\t').countIn(input);
+
+		// then
+		assertThat(count, is(4));
+	}
 }
