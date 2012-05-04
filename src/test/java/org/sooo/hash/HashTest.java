@@ -14,7 +14,7 @@ import com.google.common.hash.Funnel;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
-import com.google.common.hash.Sink;
+import com.google.common.hash.PrimitiveSink;
 
 public class HashTest {
 
@@ -25,8 +25,10 @@ public class HashTest {
 	public void setUp() {
 		person = new Person(1, "John", "Doe", 1970);
 		personFunnel = new Funnel<Person>() {
+			private static final long serialVersionUID = 1L;
+
 			@Override
-			public void funnel(Person from, Sink into) {
+			public void funnel(Person from, PrimitiveSink into) {
 				into.putInt(person.id).putString(person.firstName)
 						.putString(person.lastName).putInt(person.birthYear);
 			}
@@ -51,14 +53,13 @@ public class HashTest {
 		for (int i = 0; i < 10; i++)
 			friendsList.add(new Person(i, "John" + i, "Doe" + i, 2000 + i));
 
-
 		for (Person friend : friendsList)
 			friends.put(friend);
 
 		Person oneOfFriends = new Person(0, "John0", "Doe0", 2000);
 		assertThat(friends.mightContain(oneOfFriends), is(true));
 		// TODO find the case mightContain() return false.
-		//Person notAFriend = new Person(1, "a", "a", 1);
-		//assertThat(friends.mightContain(notAFriend), is(false));
+		// Person notAFriend = new Person(1, "a", "a", 1);
+		// assertThat(friends.mightContain(notAFriend), is(false));
 	}
 }
